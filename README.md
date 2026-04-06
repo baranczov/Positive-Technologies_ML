@@ -28,9 +28,9 @@
 ### 2. Эксперименты с моделями (Выбор алгоритма)
 В процессе исследования (EDA) были протестированы два подхода к кластеризации TF-IDF векторов:
 
-* **DBSCAN (eps=0.3, cosine metric):** Показал отличный результат. Выделил 15 смысловых кластеров и 4.5% аномалий. **ARI = 0.9275, Silhouette Score = 0.7821**.
+* **DBSCAN (eps=0.3, cosine metric):** Показал отличный результат. Выделил 15 смысловых кластеров и 4.5% аномалий. <br> **ARI = 0.9275, Silhouette Score = 0.7821**. <br>
 [https://www.kaggle.com/code/danilbarantsov/pt-ml-dbscan](https://www.kaggle.com/code/danilbarantsov/pt-ml-dbscan)
-* **K-Means:** При поиске оптимального $k$ выявлена проблема переобучения на микро-шаблоны (Оптимальным значением является $k = 8$). **ARI = 0.9169, Silhouette Score = 0.5594**
+* **K-Means:** При поиске оптимального $k$ выявлена проблема переобучения на микро-шаблоны (Оптимальным значением является $k = 8$). <br> **ARI = 0.9169, Silhouette Score = 0.5594** <br>
 [https://www.kaggle.com/code/danilbarantsov/pt-ml-k-means](https://www.kaggle.com/code/danilbarantsov/pt-ml-k-means)
 
 Несмотря на превосходство DBSCAN, алгоритм не поддерживает метод `.predict()` для быстрой обработки единичных логов (требуется O(N) пересчет). Для обеспечения времени ответа API в `O(1)` в production-версию был интегрирован алгоритм **K-Means (k=8)**.
@@ -105,6 +105,7 @@ curl -X 'POST' \
 
 <img width="1472" height="722" alt="History" src="https://github.com/user-attachments/assets/c618ebad-6a43-4789-9b79-8835be95c090" />
 *История событий*
+
 ---
 
 ## Планы по улучшению
