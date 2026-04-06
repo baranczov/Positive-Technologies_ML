@@ -94,17 +94,17 @@ curl -X 'POST' \
 
 ## Интерфейс (Web UI)
 
-<img width="1481" height="764" alt="Web UI" src="https://github.com/user-attachments/assets/1b8a54ef-3d5a-4396-9bd8-bc083220c049" />
 *Вид Web UI*
+<img width="1481" height="764" alt="Web UI" src="https://github.com/user-attachments/assets/1b8a54ef-3d5a-4396-9bd8-bc083220c049" />
 
-<img width="1474" height="812" alt="Good log" src="https://github.com/user-attachments/assets/c6230580-d5e4-40f7-b664-69544cb99083" />
 *Пример обработки стандартного события авторизации.*
+<img width="1474" height="812" alt="Good log" src="https://github.com/user-attachments/assets/c6230580-d5e4-40f7-b664-69544cb99083" />
 
-<img width="1444" height="791" alt="Bad log" src="https://github.com/user-attachments/assets/cbbe8561-5e05-4483-82ca-023a6a10e646" />
 *Пример выявления неизвестной аномалии (хакерской команды).*
+<img width="1444" height="791" alt="Bad log" src="https://github.com/user-attachments/assets/cbbe8561-5e05-4483-82ca-023a6a10e646" />
 
-<img width="1472" height="722" alt="History" src="https://github.com/user-attachments/assets/c618ebad-6a43-4789-9b79-8835be95c090" />
 *История событий*
+<img width="1472" height="722" alt="History" src="https://github.com/user-attachments/assets/c618ebad-6a43-4789-9b79-8835be95c090" />
 
 ---
 
