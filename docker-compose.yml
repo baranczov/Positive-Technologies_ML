@@ -1,0 +1,11 @@
+version: '3.8'
+
+services:
+  soc-api:
+    build: .
+    container_name: pt_soc_service
+    ports:
+      - "8000:8000"
+    restart: unless-stopped
+    volumes:
+      - ./soc_logs.db:/code/soc_logs.db
