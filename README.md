@@ -28,8 +28,10 @@
 ### 2. Эксперименты с моделями (Выбор алгоритма)
 В процессе исследования (EDA) были протестированы два подхода к кластеризации TF-IDF векторов:
 
-* **DBSCAN (eps=0.3, cosine metric):** Показал выдающиеся аналитические результаты. Идеально выделил 15 смысловых кластеров и 4.5% аномалий. Совпадение с реальной бизнес-разметкой **ARI = 0.9275**.
-* **K-Means:** При поиске оптимального $k$ выявлена проблема переобучения на микро-шаблоны. 
+* **DBSCAN (eps=0.3, cosine metric):** Показал отличный результат. Выделил 15 смысловых кластеров и 4.5% аномалий. **ARI = 0.9275, Silhouette Score = 0.7821**.
+[https://www.kaggle.com/code/danilbarantsov/pt-ml-dbscan](https://www.kaggle.com/code/danilbarantsov/pt-ml-dbscan)
+* **K-Means:** При поиске оптимального $k$ выявлена проблема переобучения на микро-шаблоны (Оптимальным значением является $k = 8$). **ARI = 0.9169, Silhouette Score = 0.5594**
+[https://www.kaggle.com/code/danilbarantsov/pt-ml-k-means](https://www.kaggle.com/code/danilbarantsov/pt-ml-k-means)
 
 Несмотря на превосходство DBSCAN, алгоритм не поддерживает метод `.predict()` для быстрой обработки единичных логов (требуется O(N) пересчет). Для обеспечения времени ответа API в `O(1)` в production-версию был интегрирован алгоритм **K-Means (k=8)**.
 * **Качество в проде:** Silhouette Score: `0.5594`, Adjusted Rand Index (ARI): `0.9169`.
@@ -92,12 +94,17 @@ curl -X 'POST' \
 
 ## Интерфейс (Web UI)
 
-[ВСТАВЬ_ССЫЛКУ_НА_СКРИНШОТ_ОБЫЧНОГО_ЛОГА_СЮДА]
+<img width="1481" height="764" alt="Web UI" src="https://github.com/user-attachments/assets/1b8a54ef-3d5a-4396-9bd8-bc083220c049" />
+*Вид Web UI*
+
+<img width="1474" height="812" alt="Good log" src="https://github.com/user-attachments/assets/c6230580-d5e4-40f7-b664-69544cb99083" />
 *Пример обработки стандартного события авторизации.*
 
-[ВСТАВЬ_ССЫЛКУ_НА_СКРИНШОТ_АНОМАЛИИ_СЮДА]
+<img width="1444" height="791" alt="Bad log" src="https://github.com/user-attachments/assets/cbbe8561-5e05-4483-82ca-023a6a10e646" />
 *Пример выявления неизвестной аномалии (хакерской команды).*
 
+<img width="1472" height="722" alt="History" src="https://github.com/user-attachments/assets/c618ebad-6a43-4789-9b79-8835be95c090" />
+*История событий*
 ---
 
 ## Планы по улучшению
