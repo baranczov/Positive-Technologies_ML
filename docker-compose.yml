@@ -3,9 +3,20 @@ version: '3.8'
 services:
   soc-api:
     build: .
-    container_name: pt_soc_service
+    container_name: pt_soc_api
     ports:
       - "8000:8000"
     restart: unless-stopped
     volumes:
       - ./soc_logs.db:/code/soc_logs.db
+
+  soc-ui:
+    build:
+      context: .
+      dockerfile: frontend/Dockerfile
+    container_name: pt_soc_ui
+    ports:
+      - "8501:8501"
+    depends_on:
+      - soc-api
+    restart: unless-stopped
